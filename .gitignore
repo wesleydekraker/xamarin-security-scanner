@@ -1,0 +1,9 @@
+.vs/
+obj/
+bin/
+*.user
+
+.idea/
+
+.sonarqube/
+coverage.opencover.xml

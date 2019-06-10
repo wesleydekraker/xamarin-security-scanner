@@ -1,4 +1,4 @@
-# Xamarin Security Scanner
+![header](https://github.com/infosupport/xamarin-security-scanner/blob/master/Docs/header.png?raw=true)
 
 A tool to find security vulnerabilities in Xamarin.Android apps. It finds vulnerabilities by analyzing the source code (SAST).
 
@@ -60,3 +60,7 @@ The tool reports the following issues:
 - App has debugging enabled
 - App supports outdated Android version
 - App contains a private key
+
+## Credits
+
+Marco Kuiper (@marcofolio) - For the logo.

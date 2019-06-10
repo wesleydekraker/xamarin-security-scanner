@@ -41,6 +41,8 @@ Options:
   -?|-h|--help                    Show help information
 ```
 
+For more information on how to use the Xamarin Security Scanner, see the [configuration docs](/Docs/Configuration.md).
+
 ## Functionality
 
 The tool reports the following issues:

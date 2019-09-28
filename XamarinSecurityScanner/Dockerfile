@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2-alpine AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:3.0-alpine AS build
 WORKDIR /app
 
 # copy csproj and restore as distinct layers
@@ -18,7 +18,7 @@ WORKDIR /app/XamarinSecurityScanner.App
 RUN dotnet publish -c Release -o out
 
 
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.2-alpine AS runtime
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.0-alpine AS runtime
 WORKDIR /app
 COPY --from=build /app/XamarinSecurityScanner.App/out ./
 ENTRYPOINT ["dotnet", "XamarinSecurityScanner.App.dll", "--path", "/project"]

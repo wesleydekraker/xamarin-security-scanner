@@ -26,7 +26,7 @@ namespace XamarinSecurityScanner.Core.Tests.Text
         [TestMethod]
         public void NonExistingFile()
         {
-            TextFile textFile = GetTextFile("NonExistingFile.cs");
+            TextFile textFile = GetTextFile("NonExistingFile.cs.test");
 
             string text = textFile.GetText();
 
@@ -36,7 +36,7 @@ namespace XamarinSecurityScanner.Core.Tests.Text
         [TestMethod]
         public void SmallerThanMaxSize()
         {
-            TextFile textFile = GetTextFile("Example.txt");
+            TextFile textFile = GetTextFile("Example.txt.test");
 
             TextFile.MaxSize = 14;
             string text = textFile.GetText();

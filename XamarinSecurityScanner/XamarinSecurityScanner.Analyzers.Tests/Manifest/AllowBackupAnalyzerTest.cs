@@ -58,7 +58,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Manifest
         [TestMethod]
         public void AllowBackupFalse()
         {
-            AndroidManifestFile androidManifestFile = GetAndroidManifestFile("AllowBackupFalse.xml");
+            AndroidManifestFile androidManifestFile = GetAndroidManifestFile("AllowBackupFalse.xml.test");
 
             _analyzer.Analyze(androidManifestFile);
 

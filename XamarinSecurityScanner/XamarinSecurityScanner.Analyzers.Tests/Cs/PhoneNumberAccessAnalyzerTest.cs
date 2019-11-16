@@ -40,7 +40,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
         [TestMethod]
         public void PhoneNumberAccess()
         {
-            CsFile csFile = GetCsFile("PhoneNumberAccess.cs");
+            CsFile csFile = GetCsFile("PhoneNumberAccess.cs.test");
 
             _analyzer.Analyze(csFile);
             
@@ -49,7 +49,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
             Assert.AreEqual("PhoneNumberAccess", vulnerability.Code);
             Assert.AreEqual("Access to phone number", vulnerability.Title);
             Assert.AreEqual("Be careful accessing the phone number of your user. This is personally identifying information (PII).", vulnerability.Description);
-            string expectedPath = Path.Combine("TestFiles", "PhoneNumberAccess", "PhoneNumberAccess.cs");
+            string expectedPath = Path.Combine("TestFiles", "PhoneNumberAccess", "PhoneNumberAccess.cs.test");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);
             Assert.AreEqual("BankingApp.TestFiles.UniqueIdentifiers", vulnerability.FullyQualifiedName);
             Assert.AreEqual(18, vulnerability.LineNumber);

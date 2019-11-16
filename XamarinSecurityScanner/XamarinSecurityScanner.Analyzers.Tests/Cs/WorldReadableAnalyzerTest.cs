@@ -40,7 +40,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
         [TestMethod]
         public void WorldReadable()
         {
-            CsFile csFile = GetCsFile("WorldReadable.cs");
+            CsFile csFile = GetCsFile("WorldReadable.cs.test");
 
             _analyzer.Analyze(csFile);
             
@@ -49,7 +49,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
             Assert.AreEqual("WorldReadable", vulnerability.Code);
             Assert.AreEqual("WorldReadable file found", vulnerability.Title);
             Assert.AreEqual("A WorldReadable file may expose sensitive data to other apps.", vulnerability.Description);
-            string expectedPath = Path.Combine("TestFiles", "WorldReadable", "WorldReadable.cs");
+            string expectedPath = Path.Combine("TestFiles", "WorldReadable", "WorldReadable.cs.test");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);
             Assert.AreEqual("BankingApp.TestFiles.WorldReadable", vulnerability.FullyQualifiedName);
             Assert.AreEqual(16, vulnerability.LineNumber);

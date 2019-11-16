@@ -37,7 +37,7 @@ namespace XamarinSecurityScanner.Core.Tests
         [TestMethod]
         public void SingleNamespace()
         {
-            var unit = GetUnit("SingleNamespace.cs");
+            var unit = GetUnit("SingleNamespace.cs.test");
             var methodDeclaration = unit.DescendantNodes().OfType<MethodDeclarationSyntax>().First();
 
             string qualifiedName = QualifiedNameResolver.Resolve(methodDeclaration);
@@ -48,7 +48,7 @@ namespace XamarinSecurityScanner.Core.Tests
         [TestMethod]
         public void MultipleNamespaces()
         {
-            var unit = GetUnit("MultipleNamespaces.cs");
+            var unit = GetUnit("MultipleNamespaces.cs.test");
             var methodDeclaration = unit.DescendantNodes().OfType<MethodDeclarationSyntax>().First();
 
             string qualifiedName = QualifiedNameResolver.Resolve(methodDeclaration);
@@ -59,7 +59,7 @@ namespace XamarinSecurityScanner.Core.Tests
         [TestMethod]
         public void NestedTypes()
         {
-            var unit = GetUnit("NestedTypes.cs");
+            var unit = GetUnit("NestedTypes.cs.test");
             var methodDeclaration = unit.DescendantNodes().OfType<MethodDeclarationSyntax>().First();
 
             string qualifiedName = QualifiedNameResolver.Resolve(methodDeclaration);
@@ -70,7 +70,7 @@ namespace XamarinSecurityScanner.Core.Tests
         [TestMethod]
         public void WithoutNamespace()
         {
-            var unit = GetUnit("WithoutNamespace.cs");
+            var unit = GetUnit("WithoutNamespace.cs.test");
             var methodDeclaration = unit.DescendantNodes().OfType<MethodDeclarationSyntax>().First();
 
             string qualifiedName = QualifiedNameResolver.Resolve(methodDeclaration);
@@ -81,7 +81,7 @@ namespace XamarinSecurityScanner.Core.Tests
         [TestMethod]
         public void NestedTypesWithoutNamespace()
         {
-            var unit = GetUnit("NestedTypesWithoutNamespace.cs");
+            var unit = GetUnit("NestedTypesWithoutNamespace.cs.test");
             var methodDeclaration = unit.DescendantNodes().OfType<MethodDeclarationSyntax>().First();
 
             string qualifiedName = QualifiedNameResolver.Resolve(methodDeclaration);
@@ -92,7 +92,7 @@ namespace XamarinSecurityScanner.Core.Tests
         [TestMethod]
         public void OutsideClassDeclaration()
         {
-            var unit = GetUnit("WithoutNamespace.cs");
+            var unit = GetUnit("WithoutNamespace.cs.test");
 
             string qualifiedName = QualifiedNameResolver.Resolve(unit);
 
@@ -102,7 +102,7 @@ namespace XamarinSecurityScanner.Core.Tests
         [TestMethod]
         public void StringLiteralToken()
         {
-            var unit = GetUnit("WithoutNamespace.cs");
+            var unit = GetUnit("WithoutNamespace.cs.test");
             var stringLiteralToken = unit.DescendantTokens()
                 .Where(n => n.Kind() == SyntaxKind.StringLiteralToken)
                 .First();

@@ -41,7 +41,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
         [TestMethod]
         public void EcbEncryption()
         {
-            CsFile csFile = GetCsFile("EcbCipherMode.cs");
+            CsFile csFile = GetCsFile("EcbCipherMode.cs.test");
 
             _analyzer.Analyze(csFile);
             
@@ -50,7 +50,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
             Assert.AreEqual("EcbCipherMode", vulnerability.Code);
             Assert.AreEqual("Unsafe cipher mode used", vulnerability.Title);
             Assert.AreEqual("You may leak information by using the ECB cipher mode. Encrypting the same block of bits using this mode returns the same output.", vulnerability.Description);
-            string expectedPath = Path.Combine("TestFiles", "EcbCipherMode", "EcbCipherMode.cs");
+            string expectedPath = Path.Combine("TestFiles", "EcbCipherMode", "EcbCipherMode.cs.test");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);
             Assert.AreEqual("BankingApp.TestFiles.EcbCipherMode", vulnerability.FullyQualifiedName);
             Assert.AreEqual(26, vulnerability.LineNumber);
@@ -59,7 +59,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
         [TestMethod]
         public void EcbEncryptionWithFullyQualifiedName()
         {
-            CsFile csFile = GetCsFile("EcbCipherModeFQ.cs");
+            CsFile csFile = GetCsFile("EcbCipherModeFQ.cs.test");
 
             _analyzer.Analyze(csFile);
             
@@ -68,7 +68,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
             Assert.AreEqual("EcbCipherMode", vulnerability.Code);
             Assert.AreEqual("Unsafe cipher mode used", vulnerability.Title);
             Assert.AreEqual("You may leak information by using the ECB cipher mode. Encrypting the same block of bits using this mode returns the same output.", vulnerability.Description);
-            string expectedPath = Path.Combine("TestFiles", "EcbCipherMode", "EcbCipherModeFQ.cs");
+            string expectedPath = Path.Combine("TestFiles", "EcbCipherMode", "EcbCipherModeFQ.cs.test");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);
             Assert.AreEqual("BankingApp.TestFiles.EcbCipherModeFQ", vulnerability.FullyQualifiedName);
             Assert.AreEqual(22, vulnerability.LineNumber);
@@ -77,7 +77,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
         [TestMethod]
         public void CbcEncryption()
         {
-            CsFile csFile = GetCsFile("CbcCipherMode.cs");
+            CsFile csFile = GetCsFile("CbcCipherMode.cs.test");
 
             _analyzer.Analyze(csFile);
             

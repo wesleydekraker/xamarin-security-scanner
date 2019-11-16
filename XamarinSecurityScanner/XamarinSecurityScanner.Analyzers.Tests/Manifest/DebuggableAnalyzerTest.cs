@@ -58,7 +58,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Manifest
         [TestMethod]
         public void DebuggableFalse()
         {
-            AndroidManifestFile androidManifestFile = GetAndroidManifestFile("DebuggableFalse.xml");
+            AndroidManifestFile androidManifestFile = GetAndroidManifestFile("DebuggableFalse.xml.test");
 
             _analyzer.Analyze(androidManifestFile);
 
@@ -68,7 +68,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Manifest
         [TestMethod]
         public void DebuggableMissing()
         {
-            AndroidManifestFile androidManifestFile = GetAndroidManifestFile("DebuggableMissing.xml");
+            AndroidManifestFile androidManifestFile = GetAndroidManifestFile("DebuggableMissing.xml.test");
 
             _analyzer.Analyze(androidManifestFile);
 

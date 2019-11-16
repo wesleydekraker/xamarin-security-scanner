@@ -41,7 +41,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
         [TestMethod]
         public void WebViewJavaScriptEnabled()
         {
-            CsFile csFile = GetCsFile("WebViewJavaScriptEnabled.cs");
+            CsFile csFile = GetCsFile("WebViewJavaScriptEnabled.cs.test");
 
             _analyzer.Analyze(csFile);
             
@@ -50,7 +50,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
             Assert.AreEqual("JavaScriptEnabled", vulnerability.Code);
             Assert.AreEqual("JavaScript enabled in WebView", vulnerability.Title);
             Assert.AreEqual("Enabling JavaScript in a WebView opens the door to XSS attacks.", vulnerability.Description);
-            string expectedPath = Path.Combine("TestFiles", "JavaScriptEnabled", "WebViewJavaScriptEnabled.cs");
+            string expectedPath = Path.Combine("TestFiles", "JavaScriptEnabled", "WebViewJavaScriptEnabled.cs.test");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);
             Assert.AreEqual("BankingApp.TestFiles.WebViewJavaScriptEnabled", vulnerability.FullyQualifiedName);
             Assert.AreEqual(17, vulnerability.LineNumber);
@@ -59,7 +59,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
         [TestMethod]
         public void WebViewJavaScriptEnabledAsVariableName()
         {
-            CsFile csFile = GetCsFile("WebViewJavaScriptEnabledAsVariableName.cs");
+            CsFile csFile = GetCsFile("WebViewJavaScriptEnabledAsVariableName.cs.test");
 
             _analyzer.Analyze(csFile);
             

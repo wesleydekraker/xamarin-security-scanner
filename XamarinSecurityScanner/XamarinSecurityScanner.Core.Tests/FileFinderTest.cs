@@ -44,9 +44,7 @@ namespace XamarinSecurityScanner.Core.Tests
             _fileFinder.DirectoryWrapper = new DirectoryWrapper();
             ImmutableList<CsFile> csFiles = _fileFinder.GetCsFiles(_fileFinderPath);
 
-            Assert.AreEqual(1, csFiles.Count);
-            string filePath = Path.Combine("TestFiles", "FileFinder", "Example.cs");
-            Assert.AreEqual(csFiles[0].FilePath, filePath);
+            Assert.AreEqual(0, csFiles.Count);
         }
 
         [TestMethod]
@@ -69,9 +67,9 @@ namespace XamarinSecurityScanner.Core.Tests
             Assert.AreEqual(3, manifestFiles.Count);
             string manifestFilePath = Path.Combine("TestFiles", "FileFinder", "AndroidManifest.xml");
             Assert.IsTrue(manifestFiles.Any(file => file.FilePath == manifestFilePath));
-            string examplePath = Path.Combine("TestFiles", "FileFinder", "Example");
+            string examplePath = Path.Combine("TestFiles", "FileFinder", "Example.txt");
             Assert.IsTrue(manifestFiles.Any(file => file.FilePath == examplePath));
-            string exampleCsPath = Path.Combine("TestFiles", "FileFinder", "Example.cs");
+            string exampleCsPath = Path.Combine("TestFiles", "FileFinder", "Example.cs.test");
             Assert.IsTrue(manifestFiles.Any(file => file.FilePath == exampleCsPath));
         }
 

@@ -40,7 +40,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
         [TestMethod]
         public void JavaScriptInterface()
         {
-            CsFile csFile = GetCsFile("JavaScriptInterface.cs");
+            CsFile csFile = GetCsFile("JavaScriptInterface.cs.test");
 
             _analyzer.Analyze(csFile);
             
@@ -49,7 +49,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
             Assert.AreEqual("JavascriptInterface", vulnerability.Code);
             Assert.AreEqual("JavascriptInterface is added to a WebView", vulnerability.Title);
             Assert.AreEqual("Adding a JavascriptInterface to a WebView might allow remote code execution attacks.", vulnerability.Description);
-            string expectedPath = Path.Combine("TestFiles", "JavaScriptInterface", "JavaScriptInterface.cs");
+            string expectedPath = Path.Combine("TestFiles", "JavaScriptInterface", "JavaScriptInterface.cs.test");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);
             Assert.AreEqual("BankingApp.TestFiles.JavaScriptInterface", vulnerability.FullyQualifiedName);
             Assert.AreEqual(16, vulnerability.LineNumber);

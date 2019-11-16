@@ -40,7 +40,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
         [TestMethod]
         public void HardcodedHttpUrl()
         {
-            CsFile csFile = GetCsFile("HardcodedHttpUrl.cs");
+            CsFile csFile = GetCsFile("HardcodedHttpUrl.cs.test");
 
             _analyzer.Analyze(csFile);
             
@@ -49,7 +49,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
             Assert.AreEqual("HardcodedHttpUrl", vulnerability.Code);
             Assert.AreEqual("Hardcoded HTTP URL found", vulnerability.Title);
             Assert.AreEqual("HTTP traffic may not be encrypted, which opens the door to man-in-the-middle attacks. HTTP URL: http://www.example.com.", vulnerability.Description);
-            string expectedPath = Path.Combine("TestFiles", "HardcodedHttpUrl", "HardcodedHttpUrl.cs");
+            string expectedPath = Path.Combine("TestFiles", "HardcodedHttpUrl", "HardcodedHttpUrl.cs.test");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);
             Assert.AreEqual("BankingApp.TestFiles.HardcodedHttpUrl", vulnerability.FullyQualifiedName);
             Assert.AreEqual(16, vulnerability.LineNumber);
@@ -58,7 +58,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
         [TestMethod]
         public void HardcodedHttpUrlAsConst()
         {
-            CsFile csFile = GetCsFile("HardcodedHttpUrlVariants.cs");
+            CsFile csFile = GetCsFile("HardcodedHttpUrlVariants.cs.test");
 
             _analyzer.Analyze(csFile);
 
@@ -67,7 +67,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
             Assert.AreEqual("HardcodedHttpUrl", vulnerability.Code);
             Assert.AreEqual("Hardcoded HTTP URL found", vulnerability.Title);
             Assert.AreEqual("HTTP traffic may not be encrypted, which opens the door to man-in-the-middle attacks. HTTP URL: http://www.example.com.", vulnerability.Description);
-            string expectedPath = Path.Combine("TestFiles", "HardcodedHttpUrl", "HardcodedHttpUrlVariants.cs");
+            string expectedPath = Path.Combine("TestFiles", "HardcodedHttpUrl", "HardcodedHttpUrlVariants.cs.test");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);
             Assert.AreEqual("BankingApp.TestFiles.HardcodedHttpUrlVariants", vulnerability.FullyQualifiedName);
             Assert.AreEqual(10, vulnerability.LineNumber);

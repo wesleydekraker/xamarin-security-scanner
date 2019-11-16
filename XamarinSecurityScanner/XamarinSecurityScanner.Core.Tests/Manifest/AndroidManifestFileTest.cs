@@ -27,7 +27,7 @@ namespace XamarinSecurityScanner.Core.Tests.Manifest
         [TestMethod]
         public void InvalidDocument()
         {
-            AndroidManifestFile manifestFile = GetAndroidManifestFile("InvalidDocument");
+            AndroidManifestFile manifestFile = GetAndroidManifestFile("InvalidDocument.txt");
 
             XElement element = manifestFile.GetXElement();
 

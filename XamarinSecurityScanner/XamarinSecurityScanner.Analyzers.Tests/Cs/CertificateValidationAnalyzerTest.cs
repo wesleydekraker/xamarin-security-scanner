@@ -40,7 +40,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
         [TestMethod]
         public void SslCertificate()
         {
-            CsFile csFile = GetCsFile("CertificateValidation.cs");
+            CsFile csFile = GetCsFile("CertificateValidation.cs.test");
 
             _analyzer.Analyze(csFile);
             
@@ -49,7 +49,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
             Assert.AreEqual("CertificateValidation", vulnerability.Code);
             Assert.AreEqual("Certificate validation overwritten", vulnerability.Title);
             Assert.AreEqual("Certificate validation callback is overwritten. This may open the door to man-in-the-middle attacks.", vulnerability.Description);
-            string expectedPath = Path.Combine("TestFiles", "CertificateValidation", "CertificateValidation.cs");
+            string expectedPath = Path.Combine("TestFiles", "CertificateValidation", "CertificateValidation.cs.test");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);
             Assert.AreEqual("BankingApp.TestFiles.CertificateValidation", vulnerability.FullyQualifiedName);
             Assert.AreEqual(17, vulnerability.LineNumber);

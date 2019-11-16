@@ -40,7 +40,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
         [TestMethod]
         public void Logging()
         {
-            CsFile csFile = GetCsFile("Logging.cs");
+            CsFile csFile = GetCsFile("Logging.cs.test");
 
             _analyzer.Analyze(csFile);
             
@@ -49,7 +49,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
             Assert.AreEqual("Logging", vulnerability.Code);
             Assert.AreEqual("Logging was found", vulnerability.Title);
             Assert.AreEqual("Logging was found in the app: Log.Verbose(...). Other apps may read the logs.", vulnerability.Description);
-            string expectedPath = Path.Combine("TestFiles", "Logging", "Logging.cs");
+            string expectedPath = Path.Combine("TestFiles", "Logging", "Logging.cs.test");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);
             Assert.AreEqual("BankingApp.TestFiles.Logging", vulnerability.FullyQualifiedName);
             Assert.AreEqual(17, vulnerability.LineNumber);
@@ -58,7 +58,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
         [TestMethod]
         public void LoggingInfoWithFullyQualifiedName()
         {
-            CsFile csFile = GetCsFile("LoggingInfoFQ.cs");
+            CsFile csFile = GetCsFile("LoggingInfoFQ.cs.test");
 
             _analyzer.Analyze(csFile);
             
@@ -68,7 +68,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
         [TestMethod]
         public void CommentedOutLogging()
         {
-            CsFile csFile = GetCsFile("LoggingCommentedOut.cs");
+            CsFile csFile = GetCsFile("LoggingCommentedOut.cs.test");
 
             _analyzer.Analyze(csFile);
             
@@ -78,7 +78,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
         [TestMethod]
         public void LoggingAsValue()
         {
-            CsFile csFile = GetCsFile("LoggingInfoAsValue.cs");
+            CsFile csFile = GetCsFile("LoggingInfoAsValue.cs.test");
 
             _analyzer.Analyze(csFile);
             

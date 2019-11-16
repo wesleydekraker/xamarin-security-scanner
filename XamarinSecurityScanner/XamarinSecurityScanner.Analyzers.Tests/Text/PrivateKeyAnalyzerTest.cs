@@ -40,7 +40,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Text
         [TestMethod]
         public void PrivateKey()
         {
-            TextFile textFile = GetTextFile("id");
+            TextFile textFile = GetTextFile("id.txt");
 
             _analyzer.Analyze(textFile);
             
@@ -49,16 +49,16 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Text
             Assert.AreEqual("PrivateKey", vulnerability.Code);
             Assert.AreEqual("App contains a private key", vulnerability.Title);
             Assert.AreEqual("Private keys should never be embedded in your app.", vulnerability.Description);
-            string expectedPath = Path.Combine("TestFiles", "PrivateKey", "id");
+            string expectedPath = Path.Combine("TestFiles", "PrivateKey", "id.txt");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);
-            Assert.AreEqual("id", vulnerability.FullyQualifiedName);
+            Assert.AreEqual("id.txt", vulnerability.FullyQualifiedName);
             Assert.AreEqual(0, vulnerability.LineNumber);
         }
 
         [TestMethod]
         public void RsaPrivateKey()
         {
-            TextFile textFile = GetTextFile("id_rsa");
+            TextFile textFile = GetTextFile("id_rsa.txt");
 
             _analyzer.Analyze(textFile);
 
@@ -67,16 +67,16 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Text
             Assert.AreEqual("PrivateKey", vulnerability.Code);
             Assert.AreEqual("App contains a private key", vulnerability.Title);
             Assert.AreEqual("Private keys should never be embedded in your app.", vulnerability.Description);
-            string expectedPath = Path.Combine("TestFiles", "PrivateKey", "id_rsa");
+            string expectedPath = Path.Combine("TestFiles", "PrivateKey", "id_rsa.txt");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);
-            Assert.AreEqual("id_rsa", vulnerability.FullyQualifiedName);
+            Assert.AreEqual("id_rsa.txt", vulnerability.FullyQualifiedName);
             Assert.AreEqual(0, vulnerability.LineNumber);
         }
 
         [TestMethod]
         public void OnlyBeginKeyword()
         {
-            TextFile textFile = GetTextFile("only_begin");
+            TextFile textFile = GetTextFile("only_begin.test");
 
             _analyzer.Analyze(textFile);
 
@@ -86,7 +86,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Text
         [TestMethod]
         public void WithoutBeginKeyword()
         {
-            TextFile textFile = GetTextFile("without_begin");
+            TextFile textFile = GetTextFile("without_begin.test");
 
             _analyzer.Analyze(textFile);
 

@@ -7,83 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="TestFiles\CertificateValidation\CertificateValidation.cs" />
-    <Compile Remove="TestFiles\EcbCipherMode\CbcCipherMode.cs" />
-    <Compile Remove="TestFiles\EcbCipherMode\EcbCipherMode.cs" />
-    <Compile Remove="TestFiles\EcbCipherMode\EcbCipherModeFQ.cs" />
-    <Compile Remove="TestFiles\ExternalStorage\ExternalStorage.cs" />
-    <Compile Remove="TestFiles\ExternalStorage\ExternalStorageVariants.cs" />
-    <Compile Remove="TestFiles\HardcodedHttpUrl\HardcodedHttpUrlVariants.cs" />
-    <Compile Remove="TestFiles\JavaScriptInterface\JavaScriptInterface.cs" />
-    <Compile Remove="TestFiles\Logging\Logging.cs" />
-    <Compile Remove="TestFiles\Logging\LoggingCommentedOut.cs" />
-    <Compile Remove="TestFiles\Logging\LoggingInfoAsValue.cs" />
-    <Compile Remove="TestFiles\Logging\LoggingInfoFQ.cs" />
-    <Compile Remove="TestFiles\HardcodedHttpUrl\HardcodedHttpUrl.cs" />
-    <Compile Remove="TestFiles\CheckPermission\CheckPermission.cs" />
-    <Compile Remove="TestFiles\CheckPermission\CheckPermissionVariants.cs" />
-    <Compile Remove="TestFiles\PhoneNumberAccess\PhoneNumberAccess.cs" />
-    <Compile Remove="TestFiles\JavaScriptEnabled\WebViewJavaScriptEnabled.cs" />
-    <Compile Remove="TestFiles\JavaScriptEnabled\WebViewJavaScriptEnabledAsVariableName.cs" />
-    <Compile Remove="TestFiles\WorldReadable\WorldReadable.cs" />
+    <Compile Remove="TestFiles\**\*.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="TestFiles\EcbCipherMode\CbcCipherMode.cs">
+    <None Include="TestFiles\**\*.cs">
+      <Link>TestFiles\%(RecursiveDir)%(Filename)%(Extension).test</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestFiles\EcbCipherMode\EcbCipherMode.cs">
+    <None Include="TestFiles\**\*.xml">
+      <Link>TestFiles\%(RecursiveDir)%(Filename)%(Extension)</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestFiles\EcbCipherMode\EcbCipherModeFQ.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestFiles\ExternalStorage\ExternalStorageVariants.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestFiles\ExternalStorage\ExternalStorage.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestFiles\JavaScriptInterface\JavaScriptInterface.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestFiles\Logging\LoggingCommentedOut.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestFiles\Logging\Logging.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestFiles\Logging\LoggingInfoAsValue.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestFiles\Logging\LoggingInfoFQ.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestFiles\HardcodedHttpUrl\HardcodedHttpUrl.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestFiles\HardcodedHttpUrl\HardcodedHttpUrlVariants.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestFiles\CheckPermission\CheckPermissionVariants.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestFiles\CheckPermission\CheckPermission.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestFiles\CertificateValidation\CertificateValidation.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestFiles\PhoneNumberAccess\PhoneNumberAccess.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestFiles\JavaScriptEnabled\WebViewJavaScriptEnabled.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestFiles\JavaScriptEnabled\WebViewJavaScriptEnabledAsVariableName.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestFiles\WorldReadable\WorldReadable.cs">
+    <None Include="TestFiles\**\*.txt">
+      <Link>TestFiles\%(RecursiveDir)%(Filename)%(Extension)</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -97,54 +34,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\XamarinSecurityScanner.Analyzers\XamarinSecurityScanner.Analyzers.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="TestFiles\AllowBackup\AllowBackupFalse.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="TestFiles\AllowBackup\AllowBackupMissing.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="TestFiles\AllowBackup\AllowBackupTrue.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="TestFiles\Debuggable\DebuggableFalse.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="TestFiles\Debuggable\DebuggableMissing.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="TestFiles\Debuggable\DebuggableTrue.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="TestFiles\MinSdk\MinSdkMissing.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="TestFiles\MinSdk\MinSdkSupported.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="TestFiles\MinSdk\MinSdkText.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="TestFiles\MinSdk\MinSdkUnsupported.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="TestFiles\MinSdk\UsesSdkMissing.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="TestFiles\PrivateKey\id_rsa">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="TestFiles\PrivateKey\id">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="TestFiles\PrivateKey\without_begin">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="TestFiles\PrivateKey\only_begin">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>

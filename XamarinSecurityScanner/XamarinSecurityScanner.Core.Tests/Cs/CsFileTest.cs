@@ -28,7 +28,7 @@ namespace XamarinSecurityScanner.Core.Tests.Cs
         [TestMethod]
         public void NonExistingFile()
         {
-            CsFile csFile = GetCsFile("NonExistingFile.cs");
+            CsFile csFile = GetCsFile("NonExistingFile.cs.test");
 
             CompilationUnitSyntax unit = csFile.GetUnit();
             

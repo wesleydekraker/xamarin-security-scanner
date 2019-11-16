@@ -58,7 +58,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Manifest
         [TestMethod]
         public void MinSdkSupported()
         {
-            AndroidManifestFile androidManifestFile = GetAndroidManifestFile("MinSdkSupported.xml");
+            AndroidManifestFile androidManifestFile = GetAndroidManifestFile("MinSdkSupported.xml.test");
 
             _analyzer.Analyze(androidManifestFile);
 
@@ -68,7 +68,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Manifest
         [TestMethod]
         public void MinSdkMissing()
         {
-            AndroidManifestFile androidManifestFile = GetAndroidManifestFile("MinSdkMissing.xml");
+            AndroidManifestFile androidManifestFile = GetAndroidManifestFile("MinSdkMissing.xml.test");
 
             _analyzer.Analyze(androidManifestFile);
 
@@ -78,7 +78,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Manifest
         [TestMethod]
         public void UsesSdkMissing()
         {
-            AndroidManifestFile androidManifestFile = GetAndroidManifestFile("UsesSdkMissing.xml");
+            AndroidManifestFile androidManifestFile = GetAndroidManifestFile("UsesSdkMissing.xml.test");
 
             _analyzer.Analyze(androidManifestFile);
 
@@ -88,7 +88,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Manifest
         [TestMethod]
         public void MinSdkText()
         {
-            AndroidManifestFile androidManifestFile = GetAndroidManifestFile("MinSdkText.xml");
+            AndroidManifestFile androidManifestFile = GetAndroidManifestFile("MinSdkText.xml.test");
 
             _analyzer.Analyze(androidManifestFile);
 

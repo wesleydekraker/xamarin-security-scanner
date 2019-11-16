@@ -7,61 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="TestFiles\CertificateValidation\**" />
-    <Compile Remove="TestFiles\CheckPermission\**" />
-    <Compile Remove="TestFiles\EcbCipherMode\**" />
-    <Compile Remove="TestFiles\ExternalStorage\**" />
-    <Compile Remove="TestFiles\HardcodedHttpUrl\**" />
-    <Compile Remove="TestFiles\JavaScriptEnabled\**" />
-    <Compile Remove="TestFiles\Logging\**" />
-    <Compile Remove="TestFiles\PhoneNumberAccess\**" />
-    <EmbeddedResource Remove="TestFiles\CertificateValidation\**" />
-    <EmbeddedResource Remove="TestFiles\CheckPermission\**" />
-    <EmbeddedResource Remove="TestFiles\EcbCipherMode\**" />
-    <EmbeddedResource Remove="TestFiles\ExternalStorage\**" />
-    <EmbeddedResource Remove="TestFiles\HardcodedHttpUrl\**" />
-    <EmbeddedResource Remove="TestFiles\JavaScriptEnabled\**" />
-    <EmbeddedResource Remove="TestFiles\Logging\**" />
-    <EmbeddedResource Remove="TestFiles\PhoneNumberAccess\**" />
-    <None Remove="TestFiles\CertificateValidation\**" />
-    <None Remove="TestFiles\CheckPermission\**" />
-    <None Remove="TestFiles\EcbCipherMode\**" />
-    <None Remove="TestFiles\ExternalStorage\**" />
-    <None Remove="TestFiles\HardcodedHttpUrl\**" />
-    <None Remove="TestFiles\JavaScriptEnabled\**" />
-    <None Remove="TestFiles\Logging\**" />
-    <None Remove="TestFiles\PhoneNumberAccess\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="TestFiles\FileFinder\Example.cs" />
-    <Compile Remove="TestFiles\Cs\Example.cs" />
-    <Compile Remove="TestFiles\QualifiedNameResolver\MultipleNamespaces.cs" />
-    <Compile Remove="TestFiles\QualifiedNameResolver\NestedTypes.cs" />
-    <Compile Remove="TestFiles\QualifiedNameResolver\NestedTypesWithoutNamespace.cs" />
-    <Compile Remove="TestFiles\QualifiedNameResolver\SingleNamespace.cs" />
-    <Compile Remove="TestFiles\QualifiedNameResolver\WithoutNameSpace.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="TestFiles\FileFinder\Example.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestFiles\Cs\Example.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestFiles\QualifiedNameResolver\MultipleNamespaces.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestFiles\QualifiedNameResolver\NestedTypesWithoutNamespace.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestFiles\QualifiedNameResolver\NestedTypes.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TestFiles\QualifiedNameResolver\SingleNamespace.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <Compile Remove="TestFiles\**\*.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -76,40 +22,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="TestFiles\QualifiedNameResolver\WithoutNamespace.cs">
+    <None Include="TestFiles\**\*.cs">
+      <Link>TestFiles\%(RecursiveDir)%(Filename)%(Extension).test</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="TestFiles\AllowBackup\AllowBackupFalse.xml">
+    <None Include="TestFiles\**\*.xml">
+      <Link>TestFiles\%(RecursiveDir)%(Filename)%(Extension)</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestFiles\AllowBackup\AllowBackupMissing.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="TestFiles\AllowBackup\AllowBackupTrue.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="TestFiles\Debuggable\DebuggableFalse.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="TestFiles\Debuggable\DebuggableMissing.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="TestFiles\Debuggable\DebuggableTrue.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="TestFiles\FileFinder\Example">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="TestFiles\FileFinder\AndroidManifest.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="TestFiles\Manifest\InvalidDocument">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="TestFiles\Text\Example.txt">
+    <None Include="TestFiles\**\*.txt">
+      <Link>TestFiles\%(RecursiveDir)%(Filename)%(Extension)</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

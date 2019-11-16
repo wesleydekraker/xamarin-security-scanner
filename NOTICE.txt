@@ -25,6 +25,3 @@ under the BSD 3-Clause License.
 This project uses the McMaster.Extensions.CommandLineUtils library,
 under the Apache License 2.0.
 
-This project uses the Newtonsoft.Json library,
-under the MIT License.
-

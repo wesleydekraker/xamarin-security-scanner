@@ -24,7 +24,7 @@ using XamarinSecurityScanner.Analyzers;
 using XamarinSecurityScanner.Core;
 using XamarinSecurityScanner.Core.Models;
 using McMaster.Extensions.CommandLineUtils;
-using Newtonsoft.Json;
+using System.Text.Json;
 
 [assembly: InternalsVisibleTo("XamarinSecurityScanner.App.Tests")]
 namespace XamarinSecurityScanner.App
@@ -106,8 +106,13 @@ namespace XamarinSecurityScanner.App
         {
             try
             {
-                string ignoreFilePath = File.ReadAllText(IgnoreFile);
-                _ignoreObject = JsonConvert.DeserializeObject<IgnoreObject>(ignoreFilePath);
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                };
+
+                string ignoreText = File.ReadAllText(IgnoreFile);
+                _ignoreObject = JsonSerializer.Deserialize<IgnoreObject>(ignoreText, options);
             }
             catch (IOException)
             {

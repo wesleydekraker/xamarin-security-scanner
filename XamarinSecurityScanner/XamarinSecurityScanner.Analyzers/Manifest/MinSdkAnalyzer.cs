@@ -38,6 +38,7 @@ namespace XamarinSecurityScanner.Analyzers.Manifest
                 {
                     Code = "MinSdk",
                     Title = "App supports outdated Android version",
+                    SeverityLevel = SeverityLevel.Critical,
                     Description = "Apps should no longer support Android Gingerbread or lower. This version is used by less than 0.3% of all devices and the latest release was in 2011.",
                     FilePath = androidManifestFile.FilePath,
                     FullyQualifiedName = "AndroidManifest.xml",

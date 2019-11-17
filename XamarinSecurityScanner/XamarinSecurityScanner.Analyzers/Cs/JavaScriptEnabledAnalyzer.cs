@@ -41,6 +41,7 @@ namespace XamarinSecurityScanner.Analyzers.Cs
                 {
                     Code = "JavaScriptEnabled",
                     Title = "JavaScript enabled in WebView",
+                    SeverityLevel = SeverityLevel.Low,
                     Description = $"Enabling JavaScript in a WebView opens the door to XSS attacks.",
                     FilePath = csFile.FilePath,
                     FullyQualifiedName = QualifiedNameResolver.Resolve(expression),

@@ -36,6 +36,7 @@ namespace XamarinSecurityScanner.Analyzers.Manifest
                 {
                     Code = "Debuggable",
                     Title = "App has debugging enabled",
+                    SeverityLevel = SeverityLevel.Medium,
                     Description = "Enabling debugging makes it easier for an attacker to reverse engineer your app.",
                     FilePath = androidManifestFile.FilePath,
                     FullyQualifiedName = "AndroidManifest.xml",

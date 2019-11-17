@@ -35,6 +35,7 @@ namespace XamarinSecurityScanner.Analyzers.Cs
                 {
                     Code = "EcbCipherMode",
                     Title = "Unsafe cipher mode used",
+                    SeverityLevel = SeverityLevel.High,
                     Description = $"You may leak information by using the ECB cipher mode. Encrypting the same block of bits using this mode returns the same output.",
                     FilePath = csFile.FilePath,
                     FullyQualifiedName = QualifiedNameResolver.Resolve(assignment),

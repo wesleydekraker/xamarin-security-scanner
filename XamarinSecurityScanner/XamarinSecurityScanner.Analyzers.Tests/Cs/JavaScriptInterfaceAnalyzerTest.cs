@@ -48,6 +48,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
             Vulnerability vulnerability = _vulnerabilities[0];
             Assert.AreEqual("JavascriptInterface", vulnerability.Code);
             Assert.AreEqual("JavascriptInterface is added to a WebView", vulnerability.Title);
+            Assert.AreEqual(SeverityLevel.Medium, vulnerability.SeverityLevel);
             Assert.AreEqual("Adding a JavascriptInterface to a WebView might allow remote code execution attacks.", vulnerability.Description);
             string expectedPath = Path.Combine("TestFiles", "JavaScriptInterface", "JavaScriptInterface.cs.test");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);

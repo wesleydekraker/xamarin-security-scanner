@@ -48,6 +48,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
             Vulnerability vulnerability = _vulnerabilities[0];
             Assert.AreEqual("CheckPermission", vulnerability.Code);
             Assert.AreEqual("Permissions may not be enforced", vulnerability.Title);
+            Assert.AreEqual(SeverityLevel.Low, vulnerability.SeverityLevel);
             Assert.AreEqual("Permissions may not be enforced when using this method in an exported component: CheckCallingOrSelfPermission(...).", vulnerability.Description);
             var expectedPath = Path.Combine("TestFiles", "CheckPermission", "CheckPermission.cs.test");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);
@@ -66,6 +67,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
             Vulnerability vulnerability = _vulnerabilities[0];
             Assert.AreEqual("CheckPermission", vulnerability.Code);
             Assert.AreEqual("Permissions may not be enforced", vulnerability.Title);
+            Assert.AreEqual(SeverityLevel.Low, vulnerability.SeverityLevel);
             Assert.AreEqual("Permissions may not be enforced when using this method in an exported component: CheckCallingOrSelfPermission(...).", vulnerability.Description);
             var expectedPath = Path.Combine("TestFiles", "CheckPermission", "CheckPermissionVariants.cs.test");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);

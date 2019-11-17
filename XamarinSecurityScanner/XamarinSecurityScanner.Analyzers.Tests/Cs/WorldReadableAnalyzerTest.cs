@@ -48,6 +48,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
             Vulnerability vulnerability = _vulnerabilities[0];
             Assert.AreEqual("WorldReadable", vulnerability.Code);
             Assert.AreEqual("WorldReadable file found", vulnerability.Title);
+            Assert.AreEqual(SeverityLevel.Critical, vulnerability.SeverityLevel);
             Assert.AreEqual("A WorldReadable file may expose sensitive data to other apps.", vulnerability.Description);
             string expectedPath = Path.Combine("TestFiles", "WorldReadable", "WorldReadable.cs.test");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);

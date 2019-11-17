@@ -37,6 +37,7 @@ namespace XamarinSecurityScanner.Analyzers.Cs
                 {
                     Code = "PhoneNumberAccess",
                     Title = "Access to phone number",
+                    SeverityLevel = SeverityLevel.Low,
                     Description = $"Be careful accessing the phone number of your user. This is personally identifying information (PII).",
                     FilePath = csFile.FilePath,
                     FullyQualifiedName = QualifiedNameResolver.Resolve(expression),

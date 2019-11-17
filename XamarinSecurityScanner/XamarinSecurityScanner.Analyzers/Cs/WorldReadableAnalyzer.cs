@@ -37,6 +37,7 @@ namespace XamarinSecurityScanner.Analyzers.Cs
                 {
                     Code = "WorldReadable",
                     Title = "WorldReadable file found",
+                    SeverityLevel = SeverityLevel.Critical,
                     Description = $"A WorldReadable file may expose sensitive data to other apps.",
                     FilePath = csFile.FilePath,
                     FullyQualifiedName = QualifiedNameResolver.Resolve(expression),

@@ -48,6 +48,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
             Vulnerability vulnerability = _vulnerabilities[0];
             Assert.AreEqual("HardcodedHttpUrl", vulnerability.Code);
             Assert.AreEqual("Hardcoded HTTP URL found", vulnerability.Title);
+            Assert.AreEqual(SeverityLevel.Low, vulnerability.SeverityLevel);
             Assert.AreEqual("HTTP traffic may not be encrypted, which opens the door to man-in-the-middle attacks. HTTP URL: http://www.example.com.", vulnerability.Description);
             string expectedPath = Path.Combine("TestFiles", "HardcodedHttpUrl", "HardcodedHttpUrl.cs.test");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);
@@ -66,6 +67,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
             Vulnerability vulnerability = _vulnerabilities[0];
             Assert.AreEqual("HardcodedHttpUrl", vulnerability.Code);
             Assert.AreEqual("Hardcoded HTTP URL found", vulnerability.Title);
+            Assert.AreEqual(SeverityLevel.Low, vulnerability.SeverityLevel);
             Assert.AreEqual("HTTP traffic may not be encrypted, which opens the door to man-in-the-middle attacks. HTTP URL: http://www.example.com.", vulnerability.Description);
             string expectedPath = Path.Combine("TestFiles", "HardcodedHttpUrl", "HardcodedHttpUrlVariants.cs.test");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);

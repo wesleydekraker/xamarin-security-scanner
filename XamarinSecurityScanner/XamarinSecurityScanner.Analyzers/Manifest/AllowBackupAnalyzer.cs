@@ -36,6 +36,7 @@ namespace XamarinSecurityScanner.Analyzers.Manifest
                 {
                     Code = "AllowBackup",
                     Title = "Backups are enabled",
+                    SeverityLevel = SeverityLevel.Medium,
                     Description = $"Enabling backups may leak sensitive data to the cloud.",
                     FilePath = androidManifestFile.FilePath,
                     FullyQualifiedName = "AndroidManifest.xml",

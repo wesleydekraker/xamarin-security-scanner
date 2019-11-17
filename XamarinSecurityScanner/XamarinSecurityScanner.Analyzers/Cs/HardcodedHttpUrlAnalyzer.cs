@@ -44,6 +44,7 @@ namespace XamarinSecurityScanner.Analyzers.Cs
                 {
                     Code = "HardcodedHttpUrl",
                     Title = "Hardcoded HTTP URL found",
+                    SeverityLevel = SeverityLevel.Low,
                     Description = $"HTTP traffic may not be encrypted, which opens the door to man-in-the-middle attacks. HTTP URL: {literal.ValueText}.",
                     FilePath = csFile.FilePath,
                     FullyQualifiedName = QualifiedNameResolver.Resolve(literal),

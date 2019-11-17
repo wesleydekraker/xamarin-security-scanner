@@ -37,6 +37,7 @@ namespace XamarinSecurityScanner.Analyzers.Cs
                 {
                     Code = "CertificateValidation",
                     Title = "Certificate validation overwritten",
+                    SeverityLevel = SeverityLevel.High,
                     Description = $"Certificate validation callback is overwritten. This may open the door to man-in-the-middle attacks.",
                     FilePath = csFile.FilePath,
                     FullyQualifiedName = QualifiedNameResolver.Resolve(expression),

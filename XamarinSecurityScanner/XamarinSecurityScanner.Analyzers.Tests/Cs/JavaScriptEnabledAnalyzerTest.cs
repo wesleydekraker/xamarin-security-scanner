@@ -49,6 +49,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
             Vulnerability vulnerability = _vulnerabilities[0];
             Assert.AreEqual("JavaScriptEnabled", vulnerability.Code);
             Assert.AreEqual("JavaScript enabled in WebView", vulnerability.Title);
+            Assert.AreEqual(SeverityLevel.Low, vulnerability.SeverityLevel);
             Assert.AreEqual("Enabling JavaScript in a WebView opens the door to XSS attacks.", vulnerability.Description);
             string expectedPath = Path.Combine("TestFiles", "JavaScriptEnabled", "WebViewJavaScriptEnabled.cs.test");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);

@@ -41,6 +41,7 @@ namespace XamarinSecurityScanner.Analyzers.Cs
                 {
                     Code = "JavascriptInterface",
                     Title = "JavascriptInterface is added to a WebView",
+                    SeverityLevel = SeverityLevel.Medium,
                     Description = $"Adding a JavascriptInterface to a WebView might allow remote code execution attacks.",
                     FilePath = csFile.FilePath,
                     FullyQualifiedName = QualifiedNameResolver.Resolve(expression),

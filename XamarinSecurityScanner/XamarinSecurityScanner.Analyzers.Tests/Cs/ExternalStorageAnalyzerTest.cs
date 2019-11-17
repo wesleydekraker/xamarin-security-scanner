@@ -48,6 +48,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
             Vulnerability vulnerability = _vulnerabilities[0];
             Assert.AreEqual("ExternalStorage", vulnerability.Code);
             Assert.AreEqual("External storage is used", vulnerability.Title);
+            Assert.AreEqual(SeverityLevel.Low, vulnerability.SeverityLevel);
             Assert.AreEqual("Files on external storage can be accessed by any app. Check this method: GetExternalFilesDir(...).", vulnerability.Description);
             string expectedPath = Path.Combine("TestFiles", "ExternalStorage", "ExternalStorage.cs.test");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);
@@ -66,6 +67,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
             Vulnerability vulnerability = _vulnerabilities[0];
             Assert.AreEqual("ExternalStorage", vulnerability.Code);
             Assert.AreEqual("External storage is used", vulnerability.Title);
+            Assert.AreEqual(SeverityLevel.Low, vulnerability.SeverityLevel);
             Assert.AreEqual("Files on external storage can be accessed by any app. Check this method: GetExternalFilesDir(...).", vulnerability.Description);
             string expectedPath = Path.Combine("TestFiles", "ExternalStorage", "ExternalStorageVariants.cs.test");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);

@@ -39,6 +39,7 @@ namespace XamarinSecurityScanner.Analyzers.Text
             {
                 Code = "PrivateKey",
                 Title = "App contains a private key",
+                SeverityLevel = SeverityLevel.Critical,
                 Description = "Private keys should never be embedded in your app.",
                 FilePath = textFile.FilePath,
                 FullyQualifiedName = Path.GetFileName(textFile.FilePath),

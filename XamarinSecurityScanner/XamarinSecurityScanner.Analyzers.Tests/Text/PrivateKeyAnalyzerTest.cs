@@ -48,6 +48,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Text
             Vulnerability vulnerability = _vulnerabilities[0];
             Assert.AreEqual("PrivateKey", vulnerability.Code);
             Assert.AreEqual("App contains a private key", vulnerability.Title);
+            Assert.AreEqual(SeverityLevel.Critical, vulnerability.SeverityLevel);
             Assert.AreEqual("Private keys should never be embedded in your app.", vulnerability.Description);
             string expectedPath = Path.Combine("TestFiles", "PrivateKey", "id.txt");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);
@@ -66,6 +67,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Text
             Vulnerability vulnerability = _vulnerabilities[0];
             Assert.AreEqual("PrivateKey", vulnerability.Code);
             Assert.AreEqual("App contains a private key", vulnerability.Title);
+            Assert.AreEqual(SeverityLevel.Critical, vulnerability.SeverityLevel);
             Assert.AreEqual("Private keys should never be embedded in your app.", vulnerability.Description);
             string expectedPath = Path.Combine("TestFiles", "PrivateKey", "id_rsa.txt");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);

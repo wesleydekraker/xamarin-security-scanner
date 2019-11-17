@@ -44,6 +44,7 @@ namespace XamarinSecurityScanner.Analyzers.Cs
                 {
                     Code = "ExternalStorage",
                     Title = "External storage is used",
+                    SeverityLevel = SeverityLevel.Low,
                     Description = $"Files on external storage can be accessed by any app. Check this method: {GetMethodName(expression)}(...).",
                     FilePath = csFile.FilePath,
                     FullyQualifiedName = QualifiedNameResolver.Resolve(expression),

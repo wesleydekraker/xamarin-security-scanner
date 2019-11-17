@@ -48,6 +48,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Manifest
             Vulnerability vulnerability = _vulnerabilities[0];
             Assert.AreEqual("MinSdk", vulnerability.Code);
             Assert.AreEqual("App supports outdated Android version", vulnerability.Title);
+            Assert.AreEqual(SeverityLevel.Critical, vulnerability.SeverityLevel);
             Assert.AreEqual("Apps should no longer support Android Gingerbread or lower. This version is used by less than 0.3% of all devices and the latest release was in 2011.", vulnerability.Description);
             string expectedPath = Path.Combine("TestFiles", "MinSdk", "MinSdkUnsupported.xml");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);

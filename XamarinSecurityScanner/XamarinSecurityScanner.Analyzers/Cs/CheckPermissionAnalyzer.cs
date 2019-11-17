@@ -45,6 +45,7 @@ namespace XamarinSecurityScanner.Analyzers.Cs
                         {
                             Code = "CheckPermission",
                             Title = "Permissions may not be enforced",
+                            SeverityLevel = SeverityLevel.Low,
                             Description = $"Permissions may not be enforced when using this method in an exported component: {GetMethodName(invocation)}(...).",
                             FilePath = csFile.FilePath,
                             FullyQualifiedName = QualifiedNameResolver.Resolve(invocation),

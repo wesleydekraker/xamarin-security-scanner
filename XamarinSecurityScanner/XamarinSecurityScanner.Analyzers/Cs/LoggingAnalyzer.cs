@@ -45,6 +45,7 @@ namespace XamarinSecurityScanner.Analyzers.Cs
                 {
                     Code = "Logging",
                     Title = "Logging was found",
+                    SeverityLevel = SeverityLevel.Low,
                     Description = $"Logging was found in the app: Log.{GetMethodName(expression)}(...). Other apps may read the logs.",
                     FilePath = csFile.FilePath,
                     FullyQualifiedName = QualifiedNameResolver.Resolve(expression),

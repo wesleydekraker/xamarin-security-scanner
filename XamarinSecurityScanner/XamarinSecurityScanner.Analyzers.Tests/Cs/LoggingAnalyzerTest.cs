@@ -48,6 +48,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
             Vulnerability vulnerability = _vulnerabilities[0];
             Assert.AreEqual("Logging", vulnerability.Code);
             Assert.AreEqual("Logging was found", vulnerability.Title);
+            Assert.AreEqual(SeverityLevel.Low, vulnerability.SeverityLevel);
             Assert.AreEqual("Logging was found in the app: Log.Verbose(...). Other apps may read the logs.", vulnerability.Description);
             string expectedPath = Path.Combine("TestFiles", "Logging", "Logging.cs.test");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);

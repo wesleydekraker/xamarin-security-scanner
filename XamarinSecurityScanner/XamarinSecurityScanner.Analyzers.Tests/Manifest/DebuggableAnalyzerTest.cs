@@ -48,6 +48,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Manifest
             Vulnerability vulnerability = _vulnerabilities[0];
             Assert.AreEqual("Debuggable", vulnerability.Code);
             Assert.AreEqual("App has debugging enabled", vulnerability.Title);
+            Assert.AreEqual(SeverityLevel.Medium, vulnerability.SeverityLevel);
             Assert.AreEqual("Enabling debugging makes it easier for an attacker to reverse engineer your app.", vulnerability.Description);
             string expectedPath = Path.Combine("TestFiles", "Debuggable", "DebuggableTrue.xml");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);

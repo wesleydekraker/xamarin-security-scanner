@@ -48,6 +48,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
             Vulnerability vulnerability = _vulnerabilities[0];
             Assert.AreEqual("PhoneNumberAccess", vulnerability.Code);
             Assert.AreEqual("Access to phone number", vulnerability.Title);
+            Assert.AreEqual(SeverityLevel.Low, vulnerability.SeverityLevel);
             Assert.AreEqual("Be careful accessing the phone number of your user. This is personally identifying information (PII).", vulnerability.Description);
             string expectedPath = Path.Combine("TestFiles", "PhoneNumberAccess", "PhoneNumberAccess.cs.test");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);

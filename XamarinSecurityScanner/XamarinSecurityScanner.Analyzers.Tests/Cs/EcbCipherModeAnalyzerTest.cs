@@ -49,6 +49,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
             Vulnerability vulnerability = _vulnerabilities[0];
             Assert.AreEqual("EcbCipherMode", vulnerability.Code);
             Assert.AreEqual("Unsafe cipher mode used", vulnerability.Title);
+            Assert.AreEqual(SeverityLevel.High, vulnerability.SeverityLevel);
             Assert.AreEqual("You may leak information by using the ECB cipher mode. Encrypting the same block of bits using this mode returns the same output.", vulnerability.Description);
             string expectedPath = Path.Combine("TestFiles", "EcbCipherMode", "EcbCipherMode.cs.test");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);
@@ -67,6 +68,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
             Vulnerability vulnerability = _vulnerabilities[0];
             Assert.AreEqual("EcbCipherMode", vulnerability.Code);
             Assert.AreEqual("Unsafe cipher mode used", vulnerability.Title);
+            Assert.AreEqual(SeverityLevel.High, vulnerability.SeverityLevel);
             Assert.AreEqual("You may leak information by using the ECB cipher mode. Encrypting the same block of bits using this mode returns the same output.", vulnerability.Description);
             string expectedPath = Path.Combine("TestFiles", "EcbCipherMode", "EcbCipherModeFQ.cs.test");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);

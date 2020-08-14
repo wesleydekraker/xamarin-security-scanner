@@ -31,6 +31,8 @@ namespace XamarinSecurityScanner.App
 {
     internal class Program
     {
+        private const string LogFile = "xamarin-security-scanner.log";
+
         public IScannerFactory ScannerFactory { private get; set; }
 
         public IEnvironmentWrapper EnvironmentWrapper { private get; set; }
@@ -42,7 +44,7 @@ namespace XamarinSecurityScanner.App
         [Option(Description = "Vulnerability threshold")]
         public int Threshold { private get; set; } = 1;
 
-        [Option(Description = "Enable logging")]
+        [Option(Description = "Enable logging to file")]
         public bool EnableLogging { private get; set; }
 
         [Option(Description = "Path to ignore file")]
@@ -85,7 +87,7 @@ namespace XamarinSecurityScanner.App
         {
             if (EnableLogging)
             {
-                XamarinSecurityScannerLogger.LogEvent = Console.WriteLine;
+                XamarinSecurityScannerLogger.LogEvent = (m) => File.AppendAllText(LogFile, m);
             }
 
             if (IgnoreFile != null)

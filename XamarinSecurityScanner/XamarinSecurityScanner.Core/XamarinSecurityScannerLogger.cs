@@ -22,9 +22,15 @@ namespace XamarinSecurityScanner.Core
     {
         public static Action<string> LogEvent { get; set; }
 
+        private static readonly object logLock = new object();
+
         public static void Log(string message)
         {
-            LogEvent?.Invoke(message);
+            lock (logLock)
+            {
+                var dateTime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                LogEvent?.Invoke(dateTime + ": " + message + Environment.NewLine);
+            }
         }
 
         public static void Log(string message, params object[] args)

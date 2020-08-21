@@ -38,7 +38,7 @@ namespace XamarinSecurityScanner.Analyzers.Cs
                     Code = "CertificateValidation",
                     Title = "Certificate validation overwritten",
                     SeverityLevel = SeverityLevel.High,
-                    Description = $"Certificate validation callback is overwritten. This may open the door to man-in-the-middle attacks.",
+                    Description = $"Certificate validation is overwritten. Incorrectly implementing this validation may open the door to man-in-the-middle attacks. Please check your implementation to see if your vulnerable (e.g. always returning true).",
                     FilePath = csFile.FilePath,
                     FullyQualifiedName = QualifiedNameResolver.Resolve(expression),
                     LineNumber = expression.GetLocation().GetLineSpan().StartLinePosition.Line + 1

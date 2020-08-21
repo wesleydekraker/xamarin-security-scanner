@@ -49,7 +49,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Manifest
             Assert.AreEqual("AllowBackup", vulnerability.Code);
             Assert.AreEqual("Backups are enabled", vulnerability.Title);
             Assert.AreEqual(SeverityLevel.Medium, vulnerability.SeverityLevel);
-            Assert.AreEqual("Enabling backups may leak sensitive data to the cloud.", vulnerability.Description);
+            Assert.AreEqual("Enabling backups may leak (sensitive) app data to Google's cloud services. If you would like to disable this feature, set 'allowBackup' to false in the <application> element.", vulnerability.Description);
             string expectedPath = Path.Combine("TestFiles", "AllowBackup", "AllowBackupTrue.xml");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);
             Assert.AreEqual("AndroidManifest.xml", vulnerability.FullyQualifiedName);

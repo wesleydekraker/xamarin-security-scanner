@@ -49,7 +49,7 @@ namespace XamarinSecurityScanner.Analyzers.Tests.Cs
             Assert.AreEqual("CertificateValidation", vulnerability.Code);
             Assert.AreEqual("Certificate validation overwritten", vulnerability.Title);
             Assert.AreEqual(SeverityLevel.High, vulnerability.SeverityLevel);
-            Assert.AreEqual("Certificate validation callback is overwritten. This may open the door to man-in-the-middle attacks.", vulnerability.Description);
+            Assert.AreEqual("Certificate validation is overwritten. Incorrectly implementing this validation may open the door to man-in-the-middle attacks. Please check your implementation to see if your vulnerable (e.g. always returning true).", vulnerability.Description);
             string expectedPath = Path.Combine("TestFiles", "CertificateValidation", "CertificateValidation.cs.test");
             Assert.AreEqual(expectedPath, vulnerability.FilePath);
             Assert.AreEqual("BankingApp.TestFiles.CertificateValidation", vulnerability.FullyQualifiedName);

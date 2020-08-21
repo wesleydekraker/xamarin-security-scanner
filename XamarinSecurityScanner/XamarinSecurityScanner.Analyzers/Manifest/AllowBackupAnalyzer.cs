@@ -37,7 +37,7 @@ namespace XamarinSecurityScanner.Analyzers.Manifest
                     Code = "AllowBackup",
                     Title = "Backups are enabled",
                     SeverityLevel = SeverityLevel.Medium,
-                    Description = $"Enabling backups may leak sensitive data to the cloud.",
+                    Description = $"Enabling backups may leak (sensitive) app data to Google's cloud services. If you would like to disable this feature, set 'allowBackup' to false in the <application> element.",
                     FilePath = androidManifestFile.FilePath,
                     FullyQualifiedName = "AndroidManifest.xml",
                     LineNumber = ((IXmlLineInfo)e).LineNumber

@@ -10,7 +10,6 @@ namespace XamarinSecurityScanner.App.Tests.Reporters
     [TestClass]
     public class JsonReporterTest
     {
-        private const string CurrentDocumentNewLine = "\r\n";
         private Mock<IConsoleWrapper> _consoleWrapper;
         private StringBuilder _output;
 
@@ -35,7 +34,7 @@ namespace XamarinSecurityScanner.App.Tests.Reporters
             reporter.Finish();
 
             Assert.AreEqual(@"[]
-", _output.ToString().Replace(Environment.NewLine, CurrentDocumentNewLine));
+".NormalizeEndOfLine(), _output.ToString());
         }
 
         [TestMethod]
@@ -67,7 +66,7 @@ namespace XamarinSecurityScanner.App.Tests.Reporters
     ""LineNumber"": 10
   }
 ]
-", _output.ToString().Replace(Environment.NewLine, CurrentDocumentNewLine));
+".NormalizeEndOfLine(), _output.ToString());
         }
 
         [TestMethod]
@@ -118,7 +117,7 @@ namespace XamarinSecurityScanner.App.Tests.Reporters
     ""LineNumber"": 20
   }
 ]
-", _output.ToString().Replace(Environment.NewLine, CurrentDocumentNewLine));
+".NormalizeEndOfLine(), _output.ToString());
         }
     }
 }

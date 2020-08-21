@@ -14,7 +14,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-using System;
 using XamarinSecurityScanner.Core.Models;
 
 namespace XamarinSecurityScanner.App.Reporters
@@ -34,14 +33,14 @@ namespace XamarinSecurityScanner.App.Reporters
 
         public override void Process(Vulnerability vulnerability)
         {
-            _consoleWrapper.WriteLine($@"Code: {vulnerability.Code}
-Title: {vulnerability.Title}
-SeverityLevel: {vulnerability.SeverityLevel}
-Description: {vulnerability.Description}
-File path: {vulnerability.FilePath}
-Fully qualified name: {vulnerability.FullyQualifiedName}
-Line number: {vulnerability.LineNumber}
-");
+            _consoleWrapper.WriteLine($"Code: {vulnerability.Code}");
+            _consoleWrapper.WriteLine($"Title: {vulnerability.Title}");
+            _consoleWrapper.WriteLine($"SeverityLevel: {vulnerability.SeverityLevel}");
+            _consoleWrapper.WriteLine($"Description: {vulnerability.Description}");
+            _consoleWrapper.WriteLine($"File path: {vulnerability.FilePath}");
+            _consoleWrapper.WriteLine($"Fully qualified name: {vulnerability.FullyQualifiedName}");
+            _consoleWrapper.WriteLine($"Line number: {vulnerability.LineNumber}");
+            _consoleWrapper.WriteLine("");
         }
 
         public override void Finish()

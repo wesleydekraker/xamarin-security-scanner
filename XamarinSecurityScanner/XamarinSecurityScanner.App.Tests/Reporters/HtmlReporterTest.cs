@@ -10,7 +10,6 @@ namespace XamarinSecurityScanner.App.Tests.Reporters
     [TestClass]
     public class HtmlReporterTest
     {
-        private const string CurrentDocumentNewLine = "\r\n";
         private Mock<IConsoleWrapper> _consoleWrapper;
         private StringBuilder _output;
 
@@ -21,9 +20,9 @@ namespace XamarinSecurityScanner.App.Tests.Reporters
 
             _consoleWrapper = new Mock<IConsoleWrapper>(MockBehavior.Strict);
             _consoleWrapper.Setup(c => c.WriteLine(It.IsAny<string>()))
-                .Callback<string>(v => _output.Append(v + CurrentDocumentNewLine));
+                .Callback<string>(v => _output.Append(v + Environment.NewLine));
             _consoleWrapper.Setup(c => c.WriteLine(It.IsAny<string>(), It.IsAny<object[]>()))
-                .Callback<string, object[]>((v, a) => _output.Append(string.Format(v, a) + CurrentDocumentNewLine));
+                .Callback<string, object[]>((v, a) => _output.Append(string.Format(v, a) + Environment.NewLine));
         }
 
         [TestMethod]
@@ -55,7 +54,7 @@ namespace XamarinSecurityScanner.App.Tests.Reporters
 </table>
 </body>
 </html>
-", _output.ToString());
+".NormalizeEndOfLine(), _output.ToString());
         }
 
         [TestMethod]
@@ -106,7 +105,7 @@ namespace XamarinSecurityScanner.App.Tests.Reporters
 </table>
 </body>
 </html>
-", _output.ToString());
+".NormalizeEndOfLine(), _output.ToString());
         }
 
         [TestMethod]
@@ -176,7 +175,7 @@ namespace XamarinSecurityScanner.App.Tests.Reporters
 </table>
 </body>
 </html>
-", _output.ToString());
+".NormalizeEndOfLine(), _output.ToString());
         }
     }
 }

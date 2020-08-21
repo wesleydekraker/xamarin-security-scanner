@@ -10,7 +10,6 @@ namespace XamarinSecurityScanner.App.Tests.Reporters
     [TestClass]
     public class CsvReporterTest
     {
-        private const string CurrentDocumentNewLine = "\r\n";
         private Mock<IConsoleWrapper> _consoleWrapper;
         private StringBuilder _output;
 
@@ -21,9 +20,9 @@ namespace XamarinSecurityScanner.App.Tests.Reporters
 
             _consoleWrapper = new Mock<IConsoleWrapper>(MockBehavior.Strict);
             _consoleWrapper.Setup(c => c.WriteLine(It.IsAny<string>()))
-                .Callback<string>(v => _output.Append(v + CurrentDocumentNewLine));
+                .Callback<string>(v => _output.Append(v + Environment.NewLine));
             _consoleWrapper.Setup(c => c.WriteLine(It.IsAny<string>(), It.IsAny<object[]>()))
-                .Callback<string, object[]>((v, a) => _output.Append(string.Format(v, a) + CurrentDocumentNewLine));
+                .Callback<string, object[]>((v, a) => _output.Append(string.Format(v, a) + Environment.NewLine));
         }
 
         [TestMethod]
@@ -35,7 +34,7 @@ namespace XamarinSecurityScanner.App.Tests.Reporters
             reporter.Finish();
 
             Assert.AreEqual(@"Code;Title;SeverityLevel;Description;FilePath;FullyQualifiedName;LineNumber
-", _output.ToString());
+".NormalizeEndOfLine(), _output.ToString());
         }
 
         [TestMethod]
@@ -58,7 +57,7 @@ namespace XamarinSecurityScanner.App.Tests.Reporters
 
             Assert.AreEqual(@"Code;Title;SeverityLevel;Description;FilePath;FullyQualifiedName;LineNumber
 ExampleCode;Example Vulnerability;Critical;Description here.;C:\Program.cs;Namespace.Class;10
-", _output.ToString());
+".NormalizeEndOfLine(), _output.ToString());
         }
 
         [TestMethod]
@@ -92,7 +91,7 @@ ExampleCode;Example Vulnerability;Critical;Description here.;C:\Program.cs;Names
             Assert.AreEqual(@"Code;Title;SeverityLevel;Description;FilePath;FullyQualifiedName;LineNumber
 ExampleCode;Example Vulnerability;Critical;Description here.;C:\Program.cs;Namespace.Class;10
 ExampleCode2;Example Vulnerability;Critical;Description here.;C:\Program.cs;Namespace.Class;20
-", _output.ToString());
+".NormalizeEndOfLine(), _output.ToString());
         }
     }
 }

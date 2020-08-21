@@ -29,44 +29,54 @@ namespace XamarinSecurityScanner.App.Reporters
 
         public override void Start()
         {
-            _consoleWrapper.WriteLine(@"<!DOCTYPE html>
-<html lang=""en"">
-<head>
-<title>Xamarin Security Scanner</title>
-<meta charset=""utf-8"">
-<meta name=""viewport"" content=""width=device-width, initial-scale=1"">
-</head>
-<body>
-<table>
-<tr>
-    <th>Code</th>
-    <th>Title</th>
-    <th>SeverityLevel</th>
-    <th>Description</th>
-    <th>FilePath</th>
-    <th>FullyQualifiedName</th>
-    <th>LineNumber</th>
-</tr>");
+            _consoleWrapper.WriteLine("<!DOCTYPE html>");
+            _consoleWrapper.WriteLine("<html lang=\"en\">");
+            _consoleWrapper.WriteLine("<head>");
+            _consoleWrapper.WriteLine("<title>Xamarin Security Scanner</title>");
+            _consoleWrapper.WriteLine("<meta charset=\"utf-8\">");
+            _consoleWrapper.WriteLine("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
+            _consoleWrapper.WriteLine("</head>");
+            _consoleWrapper.WriteLine("<body>");
+            _consoleWrapper.WriteLine("<table>");
+
+            AddHeading("Code", "Title", "SeverityLevel", "Description", "FilePath", "FullyQualifiedName", "LineNumber");
         }
 
         public override void Process(Vulnerability vulnerability)
         {
-            _consoleWrapper.WriteLine($@"<tr>
-    <td>{vulnerability.Code}</td>
-    <td>{vulnerability.Title}</td>
-    <td>{vulnerability.SeverityLevel}</td>
-    <td>{vulnerability.Description}</td>
-    <td>{vulnerability.FilePath}</td>
-    <td>{vulnerability.FullyQualifiedName}</td>
-    <td>{vulnerability.LineNumber}</td>
-</tr>");
+            AddRow(vulnerability.Code, vulnerability.Title, vulnerability.SeverityLevel.ToString(), vulnerability.Description,
+                   vulnerability.FilePath, vulnerability.FullyQualifiedName, vulnerability.LineNumber.ToString());
         }
 
         public override void Finish()
         {
-            _consoleWrapper.WriteLine(@"</table>
-</body>
-</html>");
+            _consoleWrapper.WriteLine("</table>");
+            _consoleWrapper.WriteLine("</body>");
+            _consoleWrapper.WriteLine("</html>");
+        }
+
+        private void AddHeading(params string[] headers)
+        {
+            _consoleWrapper.WriteLine("<tr>");
+
+            foreach (var header in headers)
+            {
+                _consoleWrapper.WriteLine($"    <th>{header}</th>");
+            }
+
+            _consoleWrapper.WriteLine("</tr>");
+        }
+
+        private void AddRow(params string[] values)
+        {
+            _consoleWrapper.WriteLine("<tr>");
+
+            foreach (var value in values)
+            {
+                _consoleWrapper.WriteLine($"    <td>{value}</td>");
+            }
+
+            _consoleWrapper.WriteLine("</tr>");
         }
     }
 }

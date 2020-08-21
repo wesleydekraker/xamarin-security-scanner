@@ -1,5 +1,5 @@
 ﻿/*
-Copyright 2019 Info Support B.V.
+Copyright 2020 Wesley de Kraker
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,10 +14,20 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-namespace XamarinSecurityScanner.Core.Manifest
+using System;
+
+namespace XamarinSecurityScanner.App
 {
-    public abstract class AndroidManifestAnalyzer : BaseAnalyzer, IAndroidManifestAnalyzer
-    {        
-        public abstract void Analyze(AndroidManifestFile androidManifestFile);
+    internal class ConsoleWrapper : IConsoleWrapper
+    {
+        public void WriteLine(string value)
+        {
+            Console.WriteLine(value);
+        }
+
+        public void WriteLine(string value, params object[] arg)
+        {
+            Console.WriteLine(value, arg);
+        }
     }
 }

@@ -18,13 +18,13 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Runtime.CompilerServices;
-using System.Threading;
 using System.Threading.Tasks;
 using XamarinSecurityScanner.Analyzers;
 using XamarinSecurityScanner.Core;
 using XamarinSecurityScanner.Core.Models;
 using McMaster.Extensions.CommandLineUtils;
 using System.Text.Json;
+using XamarinSecurityScanner.App.Reporters;
 
 [assembly: InternalsVisibleTo("XamarinSecurityScanner.App.Tests")]
 namespace XamarinSecurityScanner.App
@@ -37,6 +37,10 @@ namespace XamarinSecurityScanner.App
 
         public IEnvironmentWrapper EnvironmentWrapper { private get; set; }
 
+        public IReporterFactory ReporterFactory { private get; set; }
+
+        public IVulnerabilityReporter Reporter { private get; set; }
+
         [Required]
         [Option(Description = "Path to scan")]
         public string Path { private get; set; }
@@ -44,15 +48,16 @@ namespace XamarinSecurityScanner.App
         [Option(Description = "Vulnerability threshold")]
         public int Threshold { private get; set; } = 1;
 
-        [Option(Description = "Enable logging to file")]
+        [Option(Description = "Enable logging to file (xamarin-security-scanner.log)")]
         public bool EnableLogging { private get; set; }
 
         [Option(Description = "Path to ignore file")]
         public string IgnoreFile { private get; set; }
 
-        private IgnoreObject _ignoreObject;
+        [Option(Description = "Output format (text, json, csv, html)")]
+        public string Output { private get; set; }
 
-        private int _vulnerabilityCount;
+        private IgnoreObject _ignoreObject;
 
         public static int Main(string[] args) {
             try
@@ -81,6 +86,7 @@ namespace XamarinSecurityScanner.App
             };
 
             EnvironmentWrapper = new EnvironmentWrapper();
+            ReporterFactory = new ReporterFactory(new ConsoleWrapper());
         }
 
         public void OnExecute()
@@ -95,13 +101,15 @@ namespace XamarinSecurityScanner.App
                 SetIgnoreObject();
             }
 
+            Reporter = ReporterFactory.Create(Output);
             IScanner scanner = ScannerFactory.Create();
 
+            Reporter.Start();
             Task task = scanner.Start(Path);
             task.Wait();
 
-            Console.WriteLine("Total vulnerabilities: {0}", _vulnerabilityCount);
-            EnvironmentWrapper.Exit(_vulnerabilityCount < Threshold ? 0 : 1);
+            Reporter.Finish();
+            EnvironmentWrapper.Exit(Reporter.VulnerabilityCount < Threshold ? 0 : 1);
         }
 
         private void SetIgnoreObject()
@@ -130,9 +138,8 @@ namespace XamarinSecurityScanner.App
         {
             if (_ignoreObject != null && _ignoreObject.IsIgnored(vulnerability))
                 return;
-            
-            Console.WriteLine(vulnerability);
-            Interlocked.Increment(ref _vulnerabilityCount);
+
+            Reporter.Report(vulnerability);
         }
     }
 }

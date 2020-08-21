@@ -14,20 +14,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-using System;
-using XamarinSecurityScanner.Core.Models;
-
 namespace XamarinSecurityScanner.Core.Cs
 {
-    public abstract class CsAnalyzer : ICsAnalyzer
-    {
-        public Action<Vulnerability> VulnerabilityDiscovered { get; set; }
-        
+    public abstract class CsAnalyzer : BaseAnalyzer, ICsAnalyzer
+    {        
         public abstract void Analyze(CsFile csFile);
-        
-        protected void OnVulnerabilityDiscovered(Vulnerability vulnerability)
-        {
-            VulnerabilityDiscovered?.Invoke(vulnerability);
-        }
     }
 }

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright 2019 Info Support B.V.
+Copyright 2020 Wesley de Kraker
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,21 +14,23 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-namespace XamarinSecurityScanner.Core.Models
-{
-    public class Vulnerability
-    {
-        public string Code { get; set; }
-        public string Title { get; set; }
-        public SeverityLevel SeverityLevel { get; set; }
-        public string Description { get; set; }
-        public string FilePath { get; set; }
-        public string FullyQualifiedName { get; set; }
-        public int LineNumber { get; set; }
+using System;
+using XamarinSecurityScanner.Core.Models;
 
-        public override string ToString()
+namespace XamarinSecurityScanner.Core
+{
+    public abstract class BaseAnalyzer
+    {
+        private static readonly object vulnerabilityDiscoveredLock = new object();
+
+        public Action<Vulnerability> VulnerabilityDiscovered { get; set; }
+
+        protected void OnVulnerabilityDiscovered(Vulnerability vulnerability)
         {
-            return $"Code: {Code}";
+            lock (vulnerabilityDiscoveredLock)
+            {
+                VulnerabilityDiscovered?.Invoke(vulnerability);
+            }
         }
     }
 }

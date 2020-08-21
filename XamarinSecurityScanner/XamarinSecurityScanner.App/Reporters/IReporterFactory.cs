@@ -1,5 +1,5 @@
 ﻿/*
-Copyright 2019 Info Support B.V.
+Copyright 2020 Wesley de Kraker
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,10 +14,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-namespace XamarinSecurityScanner.Core.Manifest
+namespace XamarinSecurityScanner.App.Reporters
 {
-    public abstract class AndroidManifestAnalyzer : BaseAnalyzer, IAndroidManifestAnalyzer
-    {        
-        public abstract void Analyze(AndroidManifestFile androidManifestFile);
+    interface IReporterFactory
+    {
+        IVulnerabilityReporter Create(string outputFormat);
     }
 }

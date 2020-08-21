@@ -36,8 +36,9 @@ Usage: XamarinSecurityScanner.App [options]
 Options:
   -p|--path <PATH>                Path to scan
   -t|--threshold <THRESHOLD>      Vulnerability threshold
-  -e|--enable-logging             Enable logging
+  -e|--enable-logging             Enable logging to file (xamarin-security-scanner.log)
   -i|--ignore-file <IGNORE_FILE>  Path to ignore file
+  -o|--output <OUTPUT>            Output format (text, json, csv, html)
   -?|-h|--help                    Show help information
 ```
 

@@ -14,20 +14,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-using System;
-using XamarinSecurityScanner.Core.Models;
-
 namespace XamarinSecurityScanner.Core.Text
 {
-    public abstract class TextAnalyzer : ITextAnalyzer
+    public abstract class TextAnalyzer : BaseAnalyzer, ITextAnalyzer
     {
-        public Action<Vulnerability> VulnerabilityDiscovered { get; set; }
-        
         public abstract void Analyze(TextFile textFile);
-        
-        protected void OnVulnerabilityDiscovered(Vulnerability vulnerability)
-        {
-            VulnerabilityDiscovered?.Invoke(vulnerability);
-        }
     }
 }

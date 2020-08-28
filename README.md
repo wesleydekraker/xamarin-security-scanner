@@ -1,4 +1,4 @@
-![header](https://github.com/infosupport/xamarin-security-scanner/blob/master/Docs/header.png?raw=true)
+![header](https://github.com/wesleydekraker/xamarin-security-scanner/blob/master/Docs/header.png?raw=true)
 
 A tool to find security vulnerabilities in Xamarin.Android apps. It finds vulnerabilities by analyzing the source code (SAST).
 
@@ -26,7 +26,7 @@ dotnet run --project .\XamarinSecurityScanner\XamarinSecurityScanner.App --path 
 
 Example output:
 
-![screenshot](https://github.com/infosupport/xamarin-security-scanner/blob/master/Docs/screenshot.png?raw=true)
+![screenshot](https://github.com/wesleydekraker/xamarin-security-scanner/blob/master/Docs/screenshot.png?raw=true)
 
 ## Usage
 

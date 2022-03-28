@@ -16,7 +16,7 @@ docker build ./XamarinSecurityScanner -t xamarin-security-scanner
 docker run -v <absolute_path_to_project>:/project xamarin-security-scanner
 ```
 
-Another option is to install .NET Core 3.1, and run the following commands:
+Another option is to install .NET 6, and run the following commands:
 
 ```
 git clone <project_url>
